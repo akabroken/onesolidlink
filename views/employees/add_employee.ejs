@@ -1,0 +1,69 @@
+<%- include('../pages/layout') %>
+<main>
+	<% if (messages.error) { %>
+	<div class="alert alert-danger" role="alert"><%- messages.error %></div>
+	<% } %>
+    
+    <% if (messages.success) { %>
+        <div class="alert success"><%- messages.success %></div>
+        <% } %>
+    
+    <div class="card" style="width: 100rem;"> 
+    	<div class="card-header">
+			Add Employee
+		</div>
+        <div class="card-body">
+            <form action="/employee/add" method="post">
+                <div class="form-group">
+                    <label>First Name:</label>
+                    <input type="text" class="form-control" name="firstName" value="<%= firstName %>" autocomplete="off" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label>Middle Name:</label>
+                    <input type="text" class="form-control" name="middleName" value="<%= middleName %>" autocomplete="off" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label>Last Name:</label>
+                    <input type="text" class="form-control" name="lastName" value="<%= lastName %>" autocomplete="off" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" class="form-control" name="email" value="<%= email %>" autocomplete="off" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label>Staff Number:</label>
+                    <input type="text" class="form-control" name="staffNo" value="<%= staffNo %>" autocomplete="off" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number:</label>
+                    <input type="tel" class="form-control" name="phoneNumber" value="<%= phoneNumber %>" autocomplete="off" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label>Role:</label>
+                    <select class="select" name="role" value="<%= role %>" data-mdb-placeholder="Example placeholder" style="width: 500px; height:30px;" placeholder="--Select Role--" required>
+                        <% for (var i=0; i < role.length; i++) { %>
+                            <option name="role" value="<%= role[i].roleId %>"><%= role[i].roleName %></option>
+                            <% } %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Username:</label>
+                    <input type="text" class="form-control" name="username" value="<%= username %>" autocomplete="off" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="password" id="password" class="form-control" name="password" value="<%= password %>" autocomplete="off" placeholder="" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Confirm Password:</label>
+                    <input type="password" id="cpassword" class="form-control" name="cpassword" value="<%= cpassword %>" autocomplete="off" placeholder="" required>
+                </div>
+				
+                <div class="form-group">
+                    <input type="submit" class="btn btn-info" value="Add"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>

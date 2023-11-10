@@ -1,0 +1,241 @@
+/*text on the image with an overlay on it*/
+/*text on the image with an overlay on it*/
+body {
+    padding: 20px;
+}
+
+.test {
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/mice_events/IMG-20231005-WA0022.jpg");
+    position: relative;
+}
+
+.test p {
+    font-size: 14px;
+    color: #ccf083;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    position: relative;
+    text-align: center;
+    top: 70px;
+    width: 100%;
+}
+
+/*text in a box*/
+.meeting {
+    width: 100%;
+    height: 450px;
+    background-size: cover;
+    position: relative;
+    background-image: url("/images/mice_events/IMG-20231005-WA0022.jpg");
+}
+
+.meeting h1 {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #f61919;
+    display: inline;
+    padding: 1%;
+    font-size: 2em;
+    color: #f41515;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    text-align: center;
+    width: 50%;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.space {
+    height: 10px;
+}
+
+.meeting p {
+    background-color: rgba(0, 0, 255, 0.3);
+    color: #fff;
+    display: inline;
+    padding: 10px;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    text-align: center;
+    width: 440px;
+    position: absolute;
+    top: 110px;
+    left: 50px;
+}
+
+.events {
+    width: 100%;
+    height: 450px;
+    background-size: cover;
+    position: relative;
+    background-image: url("/images/mice_events/IMG-20231006-WA0023.jpg");
+}
+
+.events h1 {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #f61919;
+    display: inline;
+    padding: 1%;
+    font-size: 2em;
+    color: #f41515;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    text-align: center;
+    width: 50%;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.space {
+    height: 10px;
+}
+
+.events p {
+    background-color: rgba(0, 0, 255, 0.3);
+    color: #fff;
+    display: inline;
+    padding: 10px;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    text-align: center;
+    width: 440px;
+    position: absolute;
+    top: 110px;
+    left: 50px;
+}
+
+.incentive {
+    width: 100%;
+    height: 450px;
+    background-size: cover;
+    position: relative;
+    background-image: url("/images/mice_events/IMG-20231005-WA0018.jpg");
+}
+
+.incentive h1 {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #f61919;
+    display: inline;
+    padding: 1%;
+    font-size: 2em;
+    color: #f41515;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    text-align: center;
+    width: 50%;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.space {
+    height: 10px;
+}
+
+.incentive p {
+    background-color: rgba(0, 0, 255, 0.3);
+    color: #fff;
+    display: inline;
+    padding: 10px;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    text-align: center;
+    width: 440px;
+    position: absolute;
+    top: 70px;
+    left: 50px;
+}
+
+.conferencing {
+    width: 100%;
+    height: 450px;
+    background-size: cover;
+    position: relative;
+    background-image: url("/images/mice_events/IMG-20231005-WA0028.jpg");
+}
+
+.conferencing h1 {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #f61919;
+    display: inline;
+    padding: 1%;
+    font-size: 2em;
+    color: #f41515;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    text-align: center;
+    width: 50%;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.space {
+    height: 10px;
+}
+
+.conferencing p {
+    background-color: rgba(0, 0, 255, 0.3);
+    color: #fff;
+    display: inline;
+    padding: 10px;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    text-align: center;
+    width: 440px;
+    position: absolute;
+    top: 110px;
+    left: 50px;
+}
+
+.space {
+    height: 10px;
+}
+
+.test3 {
+    width: 100%;
+    height: 600px;
+    background-size: cover;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)), url("https://download.unsplash.com/photo-1428604467652-115d9d71a7f1");
+    position: relative;
+}
+
+.test3 p {
+    font-size: 22px;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    position: absolute;
+    bottom: 1%;
+    width: 100%;
+    text-align: center;
+}
+
+/* Media query for screens with a maximum width of 768px (typical mobile devices) */
+@media (max-width: 768px) {
+
+    conferencing,
+    incentive,
+    meeting,
+    events {
+        height: 300px;
+        /* Adjust the height for mobile devices */
+    }
+}
+

@@ -1,0 +1,23 @@
+<%- include('pages/layout_main') %>
+<body>
+    <div class="gallery">
+        <div class="image-container">
+            <img src="/images/onesilidlink_logo.png" alt="Image 1">
+            <div class="overlay">
+                <button class="view-button">View</button>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="image2.jpg" alt="Image 2">
+            <div class="overlay">
+                <button class="view-button">View</button>
+            </div>
+        </div>
+        <!-- Add more image containers as needed -->
+    </div>
+    <div class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-image">
+    </div>
+    
+    <%- include('pages/footer') %>

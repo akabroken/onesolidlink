@@ -1,0 +1,243 @@
+<%- include('../pages/layout') %>
+    <!-- <main>
+  <h1>Admin Dashboard</h1>
+            <div class="cards">
+                <div class="card">
+                    <h2>Card 1</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="card">
+                    <h2>Card 2</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="card">
+                    <h2>Card 3</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="card">
+                    <h2>Card 4</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+</main> -->
+    <main>
+        <div class="">
+            <div class="well" style="background-color: #7a91ef;">
+                <h4>Dashboard</h4>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="well" style="background-color: #59da5e;">
+                        <h2>Total Events</h2>
+                        <p><%= totalEvents %> Events</p>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="well" style="background-color: #f11ed9;">
+                        <h2>Accomodation</h2>
+                        <p><%= totalAccom %> Hotel bookings</p>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="well" style="background-color: #FF0000;">
+                        <h2>Delayed</h2>
+                        <p><%= delayedEvent %> Delayed Events</p>
+                    </div>
+                </div>
+                <div class="col-sm-3" >
+                    <div class="well" style="background-color: #10c7e7;">
+                        <h2>Revenue</h2>
+                        <p>KSh.<%= bookingRev %></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            <div class="col-sm-3">
+                <div class="well" style="background-color: #3edfd9;">
+                    <!-- <div class="card"> -->
+                        <h2>Active Events</h2>
+                        <p><%= activeEvent %> Active Events</p>
+                    <!-- </div> -->
+                </div>
+            </div>
+            <div class="col-sm-3" >
+                <div class="well"style="background-color: #10c7e7;">
+                    <!-- <div class="card"> -->
+                        <h4>Summary</h4>
+                        <p>Complted Events:       <%=completedEvents %></p>
+                        <p>Complted Accomodation: <%=compltedAccom %></p>
+                    <!-- </div> -->
+                </div>
+            </div>
+            
+        </div>
+            <div class="cards">
+                <div class="card">
+                    <h2>Event Booking Summary</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Event Name</th>
+                                <th scope="col">Customer</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% function getEventData(events, page, pageSize) { %>
+                                <% const start=page * pageSize; %>
+                                    <% const end=Math.min(start + pageSize, events.length); %>
+                                        <% for (let i=start; i < end; i++) { %>
+                                            <% console.log(events[i].id) %>
+                                                <tr>
+                                                    <th scope="row">
+                                                        <%= (i + 1) %>
+                                                    </th>
+                                                    <td>
+                                                        <%= events[i].eventName %>
+                                                    </td>
+                                                    <td>
+                                                        <%= events[i].customer %>
+                                                    </td>
+                                                    <td>
+                                                        <%= formatDate(events[i].eventdate) %>
+                                                    </td>
+
+                                                    <td>
+                                                        <% if (events[i].status==='Pending' ) { %>
+                                                            <a class="btn btn-danger"
+                                                                href="/events/actions/<%=events[i].id %>">
+                                                                <%= events[i].status %>
+                                                            </a>
+                                                            <% } else if (events[i].status==='Progress' ) { %>
+                                                                <a class="btn btn-info edit"
+                                                                    href="../events/actions/<%=events[i].id %>">
+                                                                    <%= events[i].status %>
+                                                                </a>
+                                                                <% } else if (events[i].status==='Delayed' ) { %>
+                                                                    <a class="btn btn-warning edit"
+                                                                        href="../events/actions/<%=events[i].id %>">
+                                                                        <%= events[i].status %>
+                                                                    </a>
+                                                                    <% } else { %>
+                                                                        <a class="btn btn-success edit"
+                                                                            href="../events/actions/<%=events[i].id %>">
+                                                                            <%= events[i].status %>
+                                                                        </a>
+                                                                        <% } %>
+                                                    </td>
+                                                </tr>
+                                                <% } %>
+                                                    <% } %>
+                                                        <% getEventData(events, page, pageSize); %>
+                        </tbody>
+                    </table>
+
+                    <!-- Pagination links -->
+                    <div class="pagination">
+                        <% const start=page * pageSize; %>
+                            <% const end=Math.min(start + pageSize, events.length); %>
+                                <% if (page> 0) { %>
+                                    <a href="?page=<%= page - 1 %>">Previous</a>
+                                    <% } %>
+                                        <span>Page <%= page + 1 %></span>
+                                        <% if (end < events.length) { %>
+                                            <a href="?page=<%= page + 1 %>">Next</a>
+                                            <% } %>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <h2>Hotel & Accomodation Booking Summary</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Hotel Name</th>
+                                <th scope="col">Customer</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% function getHotelData(hotels, page, pageSize) { %>
+                                <% const start=page * pageSize; %>
+                                    <% const end=Math.min(start + pageSize, hotels.length); %>
+                                        <% for (let i=start; i < end; i++) { %>
+                                            <% console.log(hotels[i].id) %>
+                                                <tr>
+                                                    <th scope="row">
+                                                        <%= (i + 1) %>
+                                                    </th>
+                                                    <td>
+                                                        <%= hotels[i].hotelName %>
+                                                    </td>
+                                                    <td>
+                                                        <%= hotels[i].customer %>
+                                                    </td>
+                                                    <td>
+                                                        <%= formatDate(hotels[i].bookingDate) %>
+                                                    </td>
+
+                                                    <td>
+                                                        <% if (hotels[i].status==='Pending' ) { %>
+                                                            <a class="btn btn-danger"
+                                                                href="/hotels/actions/<%=hotels[i].id %>">
+                                                                <%= hotels[i].status %>
+                                                            </a>
+                                                            <% } else if (events[i].status==='Progress' ) { %>
+                                                                <a class="btn btn-info edit"
+                                                                    href="../hotels/actions/<%=hotels[i].id %>">
+                                                                    <%= hotels[i].status %>
+                                                                </a>
+                                                                <% } else if (events[i].status==='Delayed' ) { %>
+                                                                    <a class="btn btn-warning edit"
+                                                                        href="../hotels/actions/<%=hotels[i].id %>">
+                                                                        <%= hotels[i].status %>
+                                                                    </a>
+                                                                    <% } else { %>
+                                                                        <a class="btn btn-success edit"
+                                                                            href="../hotels/actions/<%=hotels[i].id %>">
+                                                                            <%= hotels[i].status %>
+                                                                        </a>
+                                                                        <% } %>
+                                                    </td>
+                                                </tr>
+                                                <% } %>
+                                                    <% } %>
+                                                        <% getHotelData(hotels, page, pageSize); %>
+                        </tbody>
+                    </table>
+
+                    <!-- Pagination links -->
+                    <div class="pagination">
+                        <% const startt=page * pageSize; %>
+                            <% const endd=Math.min(startt + pageSize, hotels.length); %>
+                                <% if (page> 0) { %>
+                                    <a href="?page=<%= page - 1 %>">Previous</a>
+                                    <% } %>
+                                        <span>Page <%= page + 1 %></span>
+                                        <% if (endd < hotels.length) { %>
+                                            <a href="?page=<%= page + 1 %>">Next</a>
+                                            <% } %>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="well">
+                        <p>Text</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="well">
+                        <p>Text</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
