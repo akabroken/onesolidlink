@@ -1,0 +1,65 @@
+<%- include('../pages/layout_main') %>
+    <link rel="stylesheet" href="/css/style_mins_1_2.css">
+    <div>
+        <img src="/images/onesilidlink_baner.png" alt="OSL">
+    </div>
+    <!-- The App Section -->
+    <div class="container__event" style="display: flex;">
+
+        <div class="column-67">
+            <h1 class="xlarge-font"><b></b></h1>
+            <h1 class="large-font" style="color:rgb(235, 62, 10);"><b>Accomodation</b></h1>
+            <p><span style="font-size:36px; font-style: italic; color:rgb(235, 62, 10); font-weight: bolder;">Live,
+                    hybrid and virtual events that EXCITES. ENGAGE. EXCEED</span>
+                <span style="font-size:14px; font-style:italic; color:MediumSeaGreen;">
+                    Experience Exceptional Accommodation - At One Solid Link, we redefine hospitality, offering
+                    more than just a place to stay. Our handpicked accommodations are designed to provide a home away
+                    from home for travelers seeking comfort and convenience. Whether you're here for business or
+                    leisure, our commitment to guest satisfaction, top-notch amenities, and personalized service ensure
+                    your stay is unforgettable. Discover a new standard in hospitality with At One Solid Link. Your
+                    comfort, our priority.
+                </span>
+            </p>
+            <!-- <button class="button">Discover Accomodation</button> -->
+        </div>
+        <div class="column-34">
+            <!-- <img src="/images/image11.png" alt="App" width="335" height="471">  -->
+        </div>
+    </div>
+
+    <section class="form-section">
+        <fieldset>
+            <legend>
+                <h2>Available Hotels</h2>
+            </legend>
+            <div class="grid">
+                <!-- <form action="/book" method="post"> -->
+                <ul class="image-list">
+                    <% hotels.forEach((hotel, index)=> { %>
+                        <li class="image-item">
+                            <h4>
+                                <%= hotel.hotelName %>
+                            </h4>
+                            <label>
+                                <img src="/uploads/images/<%= hotel.filename %>" alt="Hotel Image"
+                                    style="width:500px;height:300px;">
+                                <a class="button-book" href="../hotels/checkout/<%= hotel.hotelId %>">Book Now!</a>
+                            </label>
+
+                        </li>
+                        <% if ((index + 1) % 4===0) { %>
+                </ul>
+                <ul class="image-list">
+                    <% } %>
+                        <% }) %>
+                </ul>
+                <!-- <input type="submit" value="Book Hotel">
+                </form> -->
+            </div>
+
+        </fieldset>
+    </section>
+
+
+
+    <%- include('../pages/footer') %>
