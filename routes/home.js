@@ -75,6 +75,10 @@ router.get('/accomodation', (req, res) => {
     res.render('accomodation', { title: 'Accomodation' });
 }
 );
+router.get('/booking', (req, res) => {
+    res.render('bookings', { title: 'Booking' });
+}
+);
 
 router.post('/postcontact',(req,res)=>{
     let firstname = req.body.firstname;
