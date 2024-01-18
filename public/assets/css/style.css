@@ -1533,7 +1533,7 @@ p {
   overflow: hidden;
   border-radius: 8px; }
   .single-portfolio .portfolio-image img {
-    width: 100%;
+    width: 80%;
     -webkit-transition: all 0.3s ease-out 0s;
     -moz-transition: all 0.3s ease-out 0s;
     -ms-transition: all 0.3s ease-out 0s;
@@ -1543,7 +1543,7 @@ p {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 80%;
     height: 100%;
     opacity: 0;
     visibility: hidden;
